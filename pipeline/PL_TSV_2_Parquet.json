@@ -55,7 +55,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@variables('myFileName')",
+								"value": "@variables('fileName')",
 								"type": "Expression"
 							}
 						}
@@ -120,7 +120,13 @@
 				"outputs": [
 					{
 						"referenceName": "Parquet1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"filename": {
+								"value": "@variables('fileName')",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			},
