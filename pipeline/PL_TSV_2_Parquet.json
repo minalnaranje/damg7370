@@ -84,7 +84,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": false,
+							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -170,12 +170,7 @@
 		],
 		"parameters": {
 			"fileName": {
-				"type": "string"
-			}
-		},
-		"variables": {
-			"myFileName": {
-				"type": "String",
+				"type": "string",
 				"defaultValue": "pet_lic_data.parquet"
 			}
 		},
