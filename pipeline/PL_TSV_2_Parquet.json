@@ -120,13 +120,7 @@
 				"outputs": [
 					{
 						"referenceName": "Parquet1",
-						"type": "DatasetReference",
-						"parameters": {
-							"filename": {
-								"value": "pet_lic_data.parquet",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			},
@@ -168,9 +162,9 @@
 				"userProperties": []
 			}
 		],
-		"parameters": {
+		"variables": {
 			"fileName": {
-				"type": "string",
+				"type": "String",
 				"defaultValue": "pet_lic_data.parquet"
 			}
 		},
