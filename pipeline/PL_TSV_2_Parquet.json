@@ -73,8 +73,8 @@
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
+					"timeout": "0.00:30:00",
+					"retry": 1,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
@@ -84,7 +84,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"recursive": false,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -122,10 +122,7 @@
 						"referenceName": "Parquet1",
 						"type": "DatasetReference",
 						"parameters": {
-							"filename": {
-								"value": "@variables('fileName')",
-								"type": "Expression"
-							}
+							"filename": "pet_lic_data.parquet"
 						}
 					}
 				]
@@ -168,12 +165,6 @@
 				"userProperties": []
 			}
 		],
-		"variables": {
-			"fileName": {
-				"type": "String",
-				"defaultValue": "pet_lic_data.parquet"
-			}
-		},
 		"annotations": []
 	}
 }
