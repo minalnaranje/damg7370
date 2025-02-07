@@ -113,7 +113,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText3",
+						"referenceName": "DelimitedText4",
 						"type": "DatasetReference"
 					}
 				],
@@ -122,7 +122,10 @@
 						"referenceName": "Parquet1",
 						"type": "DatasetReference",
 						"parameters": {
-							"filename": "pet_lic_data.parquet"
+							"filename": {
+								"value": "pet_lic_data.parquet",
+								"type": "Expression"
+							}
 						}
 					}
 				]
@@ -165,6 +168,11 @@
 				"userProperties": []
 			}
 		],
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
 		"variables": {
 			"myFileName": {
 				"type": "String",
