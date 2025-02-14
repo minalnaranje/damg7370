@@ -1,0 +1,16 @@
+{
+	"name": "damg_nypd",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "NYPD_DAMG",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "DAMG_NYPD_SCHEMA",
+			"table": "NYPD_ARREST_DATA"
+		}
+	}
+}
