@@ -17,14 +17,8 @@
 		"type": "SnowflakeV2Table",
 		"schema": [],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().Schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().Table",
-				"type": "Expression"
-			}
+			"schema": "DAMG_NYPD_SCHEMA",
+			"table": "NYPD_ARREST_DATA"
 		}
 	}
 }
