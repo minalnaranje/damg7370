@@ -1,5 +1,5 @@
 {
-	"name": "SnowflakeTable6",
+	"name": "ds_Location_Dim",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_Snowflake",
