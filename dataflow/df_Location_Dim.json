@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "SnowflakeTable6",
+						"referenceName": "ds_Location_Dim",
 						"type": "DatasetReference"
 					},
 					"name": "sinkLocationDim"
@@ -69,7 +69,16 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     stageInsert: true) ~> sinkLocationDim"
+				"     stageInsert: true,",
+				"     mapColumn(",
+				"          LOCATION_SK = SK_ID,",
+				"          CITY = city,",
+				"          STATE = state,",
+				"          STATE_ABBR = state_abbr,",
+				"          ZIP_CODE = zipcode,",
+				"          DI_JOB_ID,",
+				"          DI_LOAD_DATE",
+				"     )) ~> sinkLocationDim"
 			]
 		}
 	}
