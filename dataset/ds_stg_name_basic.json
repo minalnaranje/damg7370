@@ -1,0 +1,16 @@
+{
+	"name": "ds_stg_name_basic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Snowflake_DAMG",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "DEMO_SF",
+			"table": "NAME_BASICS_STAGE"
+		}
+	}
+}
