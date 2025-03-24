@@ -19,7 +19,7 @@
 						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"recursive": false,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -35,10 +35,10 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "AzureBlobStorage1",
+							"referenceName": "blobstorageNew",
 							"type": "LinkedServiceReference"
 						},
-						"path": "stage"
+						"path": "silver"
 					},
 					"translator": {
 						"type": "TabularTranslator",
@@ -155,6 +155,93 @@
 				"outputs": [
 					{
 						"referenceName": "Snowflake_invoice_stage",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "customer_stage",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.00:30:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": false,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SnowflakeV2Sink",
+						"importSettings": {
+							"type": "SnowflakeImportCopyCommand"
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "blobstorageNew",
+							"type": "LinkedServiceReference"
+						},
+						"path": "stage"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "customerid",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERID",
+									"type": "Int64"
+								}
+							},
+							{
+								"source": {
+									"name": "CustomerName",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CUSTOMERNAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "billTo",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BILLTO",
+									"type": "String"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Customer_Stage",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Snowflake_Customer_stage",
 						"type": "DatasetReference"
 					}
 				]
