@@ -164,8 +164,6 @@
 			{
 				"name": "customer_stage",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.00:30:00",
@@ -239,7 +237,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Customer_Stage",
+						"referenceName": "CustomerPart2",
 						"type": "DatasetReference"
 					}
 				],
