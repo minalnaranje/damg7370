@@ -2,7 +2,7 @@
 	"name": "invoice_stage",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage_LS",
+			"referenceName": "AzureDataLakeStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
